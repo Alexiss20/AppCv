@@ -1,68 +1,175 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* --- src/index.css --- */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* 1. Fuente bonita (Inter) desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* 2. Configuración base del cuerpo (la "mesa" gris) */
 body {
   margin: 0;
+  padding: 40px 0;
+  background-color: #f3f4f6; /* Color de fondo gris */
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* 3. El contenedor "Hoja A4" */
+.cv-container {
+  background-color: white;
+  width: 210mm; /* Ancho real de una hoja A4 */
+  min-height: 297mm; /* Alto mínimo */
+  padding: 50px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra suave */
+  box-sizing: border-box; /* Para que el padding no agrande la hoja */
+  margin: 0 auto;
 }
 
-button {
+/* 4. Título Principal */
+h1.cv-title {
+  text-align: center;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  border-bottom: 4px solid #3b82f6; /* Línea azul debajo del título */
+  padding-bottom: 10px;
+}
+
+/* 5. Estilos para cada Sección (Educación, Exp, etc.) */
+.section {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e5e7eb; /* Línea separadora gris tenue */
+  padding-bottom: 20px;
+}
+
+.section h2 {
+  color: #3b82f6; /* Azul */
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+/* 6. Estilos del Formulario (Modo Edición) */
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb; /* Fondo gris muy clarito para el formulario */
+  padding: 20px;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: 1px dashed #cbd5e1; /* Borde punteado */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4b5563;
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: inherit; /* Que use la misma fuente Inter */
+  font-size: 0.95rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3b82f6; /* Borde azul al escribir */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+textarea {
+  resize: vertical; /* Permite estirar hacia abajo */
+  min-height: 80px;
+}
+
+/* Agrupar fechas en la misma línea */
+.date-group {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+/* 7. Estilos de Botones */
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+/* Botón Editar (más discreto) */
+.edit-btn {
+  background-color: transparent;
+  color: #9ca3af;
+  border: 1px solid #e5e7eb;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #f3f4f6;
+  color: #111;
+  border-color: #9ca3af;
+}
+
+/* 8. Estilos de Visualización (Modo Lectura) */
+.cv-view p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.cv-view strong {
+  color: #111827;
+}
+
+/* 9. MODO IMPRESIÓN (Ctrl + P) - ¡La magia! */
+@media print {
+  body {
+    background: white; /* Quita el gris de la mesa */
+    padding: 0;
   }
-  a:hover {
-    color: #747bff;
+  
+  .cv-container {
+    width: 100%;
+    box-shadow: none; /* Quita la sombra 3D */
+    margin: 0;
+    padding: 0;
+    border: none;
   }
-  button {
-    background-color: #f9f9f9;
+  
+
+  .cv-form, 
+  button, 
+  .edit-btn,
+  .btn-primary {
+    display: none !important; 
+  }
+  
+  .section {
+    border-bottom: 1px solid #000; /* Líneas negras puras para imprimir */
+    break-inside: avoid; /* Intenta no cortar secciones a la mitad */
   }
 }
