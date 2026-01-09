@@ -1,0 +1,85 @@
+/* src/styles/general.css */
+
+/* Contenedor principal de la tarjeta (se usa en todos los componentes) */
+.section-container, .general-info-container {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px; /* Ancho máximo para que no se estire demasiado */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Títulos de las secciones */
+h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* --- Estilos del Formulario (Modo Edición) --- */
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre cada campo */
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #555;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* --- Estilos de la Vista (Modo Lectura) --- */
+.cv-view {
+  text-align: left;
+  line-height: 1.6;
+}
+
+.cv-view p {
+  margin: 8px 0;
+  color: #444;
+  border-bottom: 1px dashed #eee; /* Línea separadora sutil */
+  padding-bottom: 4px;
+}
+
+/* --- Botones --- */
+button {
+  background-color: #007bff; /* Azul */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+  width: 100%; /* Botón ancho completo */
+}
+
+button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}

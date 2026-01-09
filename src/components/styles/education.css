@@ -1,0 +1,18 @@
+/* src/styles/education.css */
+
+/* Clase específica para el contenedor de educación si quieres diferenciarlo */
+.education-section {
+  border-left: 5px solid #28a745; /* Borde verde a la izquierda para identificar educación */
+}
+
+/* En la vista de educación, destacamos la escuela */
+.cv-view p strong {
+  color: #28a745; /* Texto verde para las etiquetas */
+}
+
+/* Ajuste para que los inputs se vean bien en pantallas pequeñas */
+@media (max-width: 600px) {
+  .education-section {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,45 @@
+/* src/styles/experience.css */
+
+.experience-section {
+  border-left: 5px solid #ffc107; /* Borde amarillo para identificar experiencia */
+}
+
+/* Estilo para el área de texto grande (Responsabilidades) */
+textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit; /* Heredar la fuente de la página */
+  font-size: 1rem;
+  resize: vertical; /* Permite estirar hacia abajo, pero no a los lados */
+  min-height: 80px;
+}
+
+textarea:focus {
+  border-color: #ffc107; /* Borde amarillo al escribir */
+  outline: none;
+}
+
+/* Grupo de fechas (Desde - Hasta) para que estén en la misma línea */
+.date-group {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.date-group label {
+  width: 48%; /* Cada fecha ocupa casi la mitad */
+}
+
+/* Estilo para mostrar el texto con saltos de línea en la vista final */
+.responsibilities-text {
+  white-space: pre-wrap; /* Respeta los 'enters' que el usuario escribió */
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 5px;
+  border: none !important; /* Quita la línea punteada de abajo */
+}
